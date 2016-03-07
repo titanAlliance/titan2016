@@ -70,8 +70,8 @@ public class driveTrain extends Subsystem {
 	    //testing acceleration curve
 	    
 	    double val1, val2;
-	    val1 = Math.pow(left, 3);
-	    val2 = Math.pow(right, 3);
+	    val1 = left * .75;
+	    val2 = right * .75;
 	    
 	    robotDrive.tankDrive(val1, val2);
 	}
