@@ -60,20 +60,33 @@ public class driveTrain extends Subsystem {
     }
     
 	public void takeJoystickInputs(double left, double right) {
-	    	SmartDashboard.putNumber("Distance to Object", ultraSonic1.getRangeInches());
-	        SmartDashboard.putNumber("Angle", gyro.getAngle());
-	        robotDrive.tankDrive(left, right);
+	    //needed a place to get some info for ultrasonic and gyro	
+		SmartDashboard.putNumber("Distance to Object", ultraSonic1.getRangeInches());
+	    SmartDashboard.putNumber("Angle", gyro.getAngle());
+	    
+	    //Drive bot
+	    robotDrive.tankDrive(left, right);
 	}
 	
+	/**
+	 * Reset Gyro Method - Resets Gyro to 0
+	 */
 	public void resetGyro(){
 		gyro.reset();
 	}
 	
+	/**
+	 * Gets the angle from the gyro returns a double
+	 * @return angle
+	 */
 	public double getGyroAngle(){
 		double angle = gyro.getAngle();
 		return angle;
 	}
 	
+	/**
+	 * Used in Auto to breach a defence without using ultrasonic
+	 */
 	public void driveForwardAuto() {
 		double angle = getGyroAngle();
     	double turnValue = (0.0 - angle) * Kp;
@@ -81,6 +94,11 @@ public class driveTrain extends Subsystem {
     	robotDrive.tankDrive(-.55 - turnValue, -.55 + turnValue);
 	}
 	
+	/**
+	 * Method used in auto to drive until a set distance is seen by the ultrasonic
+	 * @param distance
+	 * @return
+	 */
 	public boolean distanceAuto(double distance){
 		boolean distanceCheck;
 		
@@ -93,10 +111,20 @@ public class driveTrain extends Subsystem {
 		return distanceCheck;
 	}
 	
+	/**
+	 * Method used in auto to turn to a specific degree based on gyro input
+	 * @param left
+	 * @param right
+	 */
 	public void turn(double left, double right) {
     	robotDrive.tankDrive(left, right);
 	}
 	
+	/**
+	 * Used to determine if target angle has been reached
+	 * @param angle
+	 * @return
+	 */
 	public boolean checkAngle(double angle){
 		 boolean test;
 		 
@@ -109,6 +137,11 @@ public class driveTrain extends Subsystem {
 		 return test;
 	}
 	
+	/**
+	 * Used to determine if target angle has been reached
+	 * @param angle
+	 * @return
+	 */
 	public boolean checkNegAngle(double angle){
 		 boolean test;
 		 
@@ -121,6 +154,7 @@ public class driveTrain extends Subsystem {
 		 return test;
 	}
 
+	//Dont keep swimming
 	public void stop() {
 		robotDrive.tankDrive(0, 0);
 	}
