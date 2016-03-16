@@ -64,16 +64,7 @@ public class driveTrain extends Subsystem {
 		SmartDashboard.putNumber("Distance to Object", ultraSonic1.getRangeInches());
 	    SmartDashboard.putNumber("Angle", gyro.getAngle());
 	    
-	    //Drive bot
-	    //robotDrive.tankDrive(left, right);
-	    
-	    //testing acceleration curve
-	    
-	    double val1, val2;
-	    val1 = left * .75;
-	    val2 = right * .75;
-	    
-	    robotDrive.tankDrive(val1, val2);
+	    robotDrive.tankDrive(left, right);
 	}
 	
 	/**
@@ -99,7 +90,7 @@ public class driveTrain extends Subsystem {
 		double angle = getGyroAngle();
     	double turnValue = (0.0 - angle) * Kp;
     	//Drive Fwd 
-    	robotDrive.tankDrive(-.55 - turnValue, -.55 + turnValue);
+    	robotDrive.tankDrive(-.75 - turnValue, -.75 + turnValue);
 	}
 	
 	/**

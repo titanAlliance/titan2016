@@ -43,12 +43,12 @@ public class turnLeft45 extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.turn(.55,-.55);
+    	Robot.driveTrain.turn(.75,-.75);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return Robot.driveTrain.checkNegAngle(-38.0);
+    	return Robot.driveTrain.checkNegAngle(-45.0);
     }
 
     // Called once after isFinished returns true
