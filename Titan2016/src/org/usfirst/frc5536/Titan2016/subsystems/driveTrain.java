@@ -84,7 +84,7 @@ public class driveTrain extends Subsystem {
 	}
 	
 	/**
-	 * Used in Auto to breach a defence without using ultrasonic
+	 * Used in Auto to breach a defense without using ultrasonic
 	 */
 	public void driveForwardAuto() {
 		double angle = getGyroAngle();
