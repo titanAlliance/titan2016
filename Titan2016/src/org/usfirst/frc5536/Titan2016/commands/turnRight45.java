@@ -48,7 +48,7 @@ public class turnRight45 extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return Robot.driveTrain.checkAngle(45.0);
+    	return Robot.driveTrain.checkAngle(35.0);
     }
 
     // Called once after isFinished returns true
