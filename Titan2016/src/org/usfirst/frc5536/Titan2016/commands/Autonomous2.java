@@ -48,7 +48,7 @@ public class Autonomous2 extends CommandGroup {
         addSequential(new wait());
         addSequential(new turnRight45());
         addSequential(new wait());
-        addSequential(new driveFwdAuto());
+        addSequential(new driveFwdAuto2());
         addSequential(new wait());
         addSequential(new intakeFwd());
         addSequential(new wait());

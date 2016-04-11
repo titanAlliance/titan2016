@@ -66,14 +66,17 @@ public class RobotMap {
         driveTrainrightRearMotor = new Spark(1);
         LiveWindow.addActuator("driveTrain", "rightRearMotor", (Spark) driveTrainrightRearMotor);
         
-        driveTrainRobotDrive = new RobotDrive(driveTrainleftFrontMotor, driveTrainrightRearMotor,
-              driveTrainrightFrontMotor, driveTrainleftRearMotor);
+        driveTrainRobotDrive = new RobotDrive(driveTrainleftFrontMotor, driveTrainleftRearMotor,
+              driveTrainrightFrontMotor, driveTrainrightRearMotor);
         
         driveTrainRobotDrive.setSafetyEnabled(true);
         driveTrainRobotDrive.setExpiration(0.1);
         driveTrainRobotDrive.setSensitivity(0.5);
         driveTrainRobotDrive.setMaxOutput(1.0);
-
+        driveTrainRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+        driveTrainRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+        driveTrainRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+        driveTrainRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
         driveTrainultraSonic1 = new Ultrasonic(2, 3);
         LiveWindow.addSensor("driveTrain", "ultraSonic1", driveTrainultraSonic1);
         
